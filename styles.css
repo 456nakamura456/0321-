@@ -1,0 +1,324 @@
+/* Custom Properties for Dark Cyber Minimal Theme */
+:root {
+    --bg-color: #0b0f19;
+    --sidebar-bg: #121826;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --border-color: #1e293b;
+    --code-bg: #0f172a;
+    --success-color: #10b981;
+    --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-ja: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-ui), var(--font-ja);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar__header {
+    margin-bottom: 2rem;
+}
+
+.sidebar__header h2 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.sidebar__nav {
+    list-style: none;
+}
+
+.sidebar__nav li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 3rem 4rem;
+    max-width: 1000px;
+}
+
+.content__header {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.content__header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, var(--text-primary), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content__header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 4rem;
+}
+
+.section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+}
+
+.section p,
+.section ol,
+.section ul {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.section ol,
+.section ul {
+    padding-left: 1.5rem;
+}
+
+.section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Images */
+.image-placeholder {
+    background-color: var(--code-bg);
+    border: 1px dashed var(--border-color);
+    padding: 3rem;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Links */
+.external-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.external-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-hover);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.external-link:hover {
+    color: var(--accent-hover);
+}
+
+.external-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Prompt Block */
+.prompt-block {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.prompt-block__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.prompt-block__title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: var(--font-ui);
+}
+
+.copy-btn {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    position: relative;
+}
+
+.copy-btn:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+.copy-btn.copied {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: #fff;
+}
+
+pre {
+    padding: 1.25rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #a5b4fc;
+}
+
+/* Action Buttons */
+.resource-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent-color);
+}
+
+.action-btn:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.action-btn.outline {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.action-btn.outline:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar__header {
+        margin-bottom: 1rem;
+    }
+
+    .sidebar__nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .sidebar__nav li {
+        margin-bottom: 0;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+    }
+
+    .content__header h1 {
+        font-size: 2rem;
+    }
+}
